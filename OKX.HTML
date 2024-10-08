@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Wallet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .wallet {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        .address {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 3px;
+        }
+        .copy-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wallet">
+        <h1>My Fake Wallet</h1>
+        <div>
+            <strong>Bitcoin (BTC):</strong>
+            <div class="address" id="btcAddress">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</div>
+            <button class="copy-btn" onclick="copyToClipboard('btcAddress')">Copy Address</button>
+        </div>
+        <div>
+            <strong>Ethereum (ETH):</strong>
+            <div class="address" id="ethAddress">0x32Be343B94f860124dC4fEe278FDCBD38C102D88</div>
+            <button class="copy-btn" onclick="copyToClipboard('ethAddress')">Copy Address</button>
+        </div>
+        <div>
+            <strong>Tether (USDT):</strong>
+            <div class="address" id="usdtAddress">0xdac17f958d2ee523a2206206994597c13d831ec7</div>
+            <button class="copy-btn" onclick="copyToClipboard('usdtAddress')">Copy Address</button>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(id) {
+            const addressElement = document.getElementById(id);
+            const address = addressElement.innerText;
+            navigator.clipboard.writeText(address).then(() => {
+                alert("Address copied to clipboard: " + address);
+            }).catch(err => {
+                alert("Failed to copy: " + err);
+            });
+        }
+    </script>
+
+</body>
+</html>
